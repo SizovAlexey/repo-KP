@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarShowLadaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CarShowLadaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bodies" EntityType="CarShowLadaModel.Body" />
+    <EntitySet Name="Branches" EntityType="CarShowLadaModel.Branch" />
+    <EntitySet Name="Cars" EntityType="CarShowLadaModel.Car" />
+    <EntitySet Name="Car_In_Supply" EntityType="CarShowLadaModel.Car_In_Supply" />
+    <EntitySet Name="Clients" EntityType="CarShowLadaModel.Client" />
+    <EntitySet Name="Colors" EntityType="CarShowLadaModel.Color" />
+    <EntitySet Name="Drives" EntityType="CarShowLadaModel.Drive" />
+    <EntitySet Name="Posts" EntityType="CarShowLadaModel.Post" />
+    <EntitySet Name="Roles" EntityType="CarShowLadaModel.Role" />
+    <EntitySet Name="Sales" EntityType="CarShowLadaModel.Sale" />
+    <EntitySet Name="Suppliers" EntityType="CarShowLadaModel.Supplier" />
+    <EntitySet Name="Supplies" EntityType="CarShowLadaModel.Supply" />
+    <EntitySet Name="sysdiagrams" EntityType="CarShowLadaModel.sysdiagram" />
+    <EntitySet Name="Users" EntityType="CarShowLadaModel.User" />
+    <EntitySet Name="Workers" EntityType="CarShowLadaModel.Worker" />
+    <AssociationSet Name="FK_Car_Body" Association="CarShowLadaModel.FK_Car_Body">
+      <End Role="Body" EntitySet="Bodies" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sale_Branch" Association="CarShowLadaModel.FK_Sale_Branch">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="Sale" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_Color" Association="CarShowLadaModel.FK_Car_Color">
+      <End Role="Color" EntitySet="Colors" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_Drive" Association="CarShowLadaModel.FK_Car_Drive">
+      <End Role="Drive" EntitySet="Drives" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_In_Supply_Car" Association="CarShowLadaModel.FK_Car_In_Supply_Car">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Car_In_Supply" EntitySet="Car_In_Supply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sale_Car" Association="CarShowLadaModel.FK_Sale_Car">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Sale" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_In_Supply_Supply" Association="CarShowLadaModel.FK_Car_In_Supply_Supply">
+      <End Role="Supply" EntitySet="Supplies" />
+      <End Role="Car_In_Supply" EntitySet="Car_In_Supply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sale_Client" Association="CarShowLadaModel.FK_Sale_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Sale" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Worker_Post" Association="CarShowLadaModel.FK_Worker_Post">
+      <End Role="Post" EntitySet="Posts" />
+      <End Role="Worker" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_пользователи_роли" Association="CarShowLadaModel.FK_пользователи_роли">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sale_Worker" Association="CarShowLadaModel.FK_Sale_Worker">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="Sale" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supply_Supplier" Association="CarShowLadaModel.FK_Supply_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Supply" EntitySet="Supplies" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Body">
+    <Key>
+      <PropertyRef Name="id_Body" />
+    </Key>
+    <Property Name="id_Body" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_body" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cars" Relationship="CarShowLadaModel.FK_Car_Body" FromRole="Body" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="id_Branch" />
+    </Key>
+    <Property Name="id_Branch" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_branch" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address_branch" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone_number_branch" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sales" Relationship="CarShowLadaModel.FK_Sale_Branch" FromRole="Branch" ToRole="Sale" />
+  </EntityType>
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="id_Car" />
+    </Key>
+    <Property Name="id_Car" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_Color" Type="Int32" Nullable="false" />
+    <Property Name="id_Body" Type="Int32" Nullable="false" />
+    <Property Name="id_Drive" Type="Int32" Nullable="false" />
+    <Property Name="Engine_power" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CountCar" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Body" Relationship="CarShowLadaModel.FK_Car_Body" FromRole="Car" ToRole="Body" />
+    <NavigationProperty Name="Color" Relationship="CarShowLadaModel.FK_Car_Color" FromRole="Car" ToRole="Color" />
+    <NavigationProperty Name="Drive" Relationship="CarShowLadaModel.FK_Car_Drive" FromRole="Car" ToRole="Drive" />
+    <NavigationProperty Name="Car_In_Supply" Relationship="CarShowLadaModel.FK_Car_In_Supply_Car" FromRole="Car" ToRole="Car_In_Supply" />
+    <NavigationProperty Name="Sales" Relationship="CarShowLadaModel.FK_Sale_Car" FromRole="Car" ToRole="Sale" />
+  </EntityType>
+  <EntityType Name="Car_In_Supply">
+    <Key>
+      <PropertyRef Name="id_Supply" />
+      <PropertyRef Name="id_Car" />
+    </Key>
+    <Property Name="id_Supply" Type="Int32" Nullable="false" />
+    <Property Name="id_Car" Type="Int32" Nullable="false" />
+    <Property Name="Count_in_supply" Type="Int32" />
+    <NavigationProperty Name="Car" Relationship="CarShowLadaModel.FK_Car_In_Supply_Car" FromRole="Car_In_Supply" ToRole="Car" />
+    <NavigationProperty Name="Supply" Relationship="CarShowLadaModel.FK_Car_In_Supply_Supply" FromRole="Car_In_Supply" ToRole="Supply" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="id_Client" />
+    </Key>
+    <Property Name="id_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname_client" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name_client" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic_client" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthdate_client" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Telephone_number_client" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sales" Relationship="CarShowLadaModel.FK_Sale_Client" FromRole="Client" ToRole="Sale" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="id_Color" />
+    </Key>
+    <Property Name="id_Color" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_color" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cars" Relationship="CarShowLadaModel.FK_Car_Color" FromRole="Color" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Drive">
+    <Key>
+      <PropertyRef Name="id_Drive" />
+    </Key>
+    <Property Name="id_Drive" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_drive" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cars" Relationship="CarShowLadaModel.FK_Car_Drive" FromRole="Drive" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="id_Post" />
+    </Key>
+    <Property Name="id_Post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_post" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Salary" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <NavigationProperty Name="Workers" Relationship="CarShowLadaModel.FK_Worker_Post" FromRole="Post" ToRole="Worker" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id_Role" />
+    </Key>
+    <Property Name="id_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="CarShowLadaModel.FK_пользователи_роли" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="id_Sale" />
+    </Key>
+    <Property Name="id_Sale" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Worker" Type="Int32" />
+    <Property Name="id_Branch" Type="Int32" />
+    <Property Name="id_Car" Type="Int32" />
+    <Property Name="Date_sale" Type="DateTime" Precision="0" />
+    <Property Name="id_Client" Type="Int32" />
+    <NavigationProperty Name="Branch" Relationship="CarShowLadaModel.FK_Sale_Branch" FromRole="Sale" ToRole="Branch" />
+    <NavigationProperty Name="Car" Relationship="CarShowLadaModel.FK_Sale_Car" FromRole="Sale" ToRole="Car" />
+    <NavigationProperty Name="Client" Relationship="CarShowLadaModel.FK_Sale_Client" FromRole="Sale" ToRole="Client" />
+    <NavigationProperty Name="Worker" Relationship="CarShowLadaModel.FK_Sale_Worker" FromRole="Sale" ToRole="Worker" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="id_Supplier" />
+    </Key>
+    <Property Name="id_Supplier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Supplies" Relationship="CarShowLadaModel.FK_Supply_Supplier" FromRole="Supplier" ToRole="Supply" />
+  </EntityType>
+  <EntityType Name="Supply">
+    <Key>
+      <PropertyRef Name="id_Supply" />
+    </Key>
+    <Property Name="id_Supply" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Supplier" Type="Int32" />
+    <Property Name="Date_supply" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Car_In_Supply" Relationship="CarShowLadaModel.FK_Car_In_Supply_Supply" FromRole="Supply" ToRole="Car_In_Supply" />
+    <NavigationProperty Name="Supplier" Relationship="CarShowLadaModel.FK_Supply_Supplier" FromRole="Supply" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_Role" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="CarShowLadaModel.FK_пользователи_роли" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="id_Worker" />
+    </Key>
+    <Property Name="id_Worker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname_worker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name_worker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic_worker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthdate_worker" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_Post" Type="Int32" Nullable="false" />
+    <Property Name="Image_worker" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Telephone_number_worker" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Post" Relationship="CarShowLadaModel.FK_Worker_Post" FromRole="Worker" ToRole="Post" />
+    <NavigationProperty Name="Sales" Relationship="CarShowLadaModel.FK_Sale_Worker" FromRole="Worker" ToRole="Sale" />
+  </EntityType>
+  <Association Name="FK_Car_Body">
+    <End Type="CarShowLadaModel.Body" Role="Body" Multiplicity="1" />
+    <End Type="CarShowLadaModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Body">
+        <PropertyRef Name="id_Body" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="id_Body" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sale_Branch">
+    <End Type="CarShowLadaModel.Branch" Role="Branch" Multiplicity="0..1" />
+    <End Type="CarShowLadaModel.Sale" Role="Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="id_Branch" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="id_Branch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_Color">
+    <End Type="CarShowLadaModel.Color" Role="Color" Multiplicity="1" />
+    <End Type="CarShowLadaModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="id_Color" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="id_Color" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_Drive">
+    <End Type="CarShowLadaModel.Drive" Role="Drive" Multiplicity="1" />
+    <End Type="CarShowLadaModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drive">
+        <PropertyRef Name="id_Drive" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="id_Drive" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_In_Supply_Car">
+    <End Type="CarShowLadaModel.Car" Role="Car" Multiplicity="1" />
+    <End Type="CarShowLadaModel.Car_In_Supply" Role="Car_In_Supply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="id_Car" />
+      </Principal>
+      <Dependent Role="Car_In_Supply">
+        <PropertyRef Name="id_Car" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sale_Car">
+    <End Type="CarShowLadaModel.Car" Role="Car" Multiplicity="0..1" />
+    <End Type="CarShowLadaModel.Sale" Role="Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="id_Car" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="id_Car" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_In_Supply_Supply">
+    <End Type="CarShowLadaModel.Supply" Role="Supply" Multiplicity="1" />
+    <End Type="CarShowLadaModel.Car_In_Supply" Role="Car_In_Supply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supply">
+        <PropertyRef Name="id_Supply" />
+      </Principal>
+      <Dependent Role="Car_In_Supply">
+        <PropertyRef Name="id_Supply" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sale_Client">
+    <End Type="CarShowLadaModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="CarShowLadaModel.Sale" Role="Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="id_Client" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="id_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Worker_Post">
+    <End Type="CarShowLadaModel.Post" Role="Post" Multiplicity="1" />
+    <End Type="CarShowLadaModel.Worker" Role="Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="id_Post" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="id_Post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_пользователи_роли">
+    <End Type="CarShowLadaModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="CarShowLadaModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id_Role" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="id_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sale_Worker">
+    <End Type="CarShowLadaModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="CarShowLadaModel.Sale" Role="Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="id_Worker" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="id_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supply_Supplier">
+    <End Type="CarShowLadaModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+    <End Type="CarShowLadaModel.Supply" Role="Supply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="id_Supplier" />
+      </Principal>
+      <Dependent Role="Supply">
+        <PropertyRef Name="id_Supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

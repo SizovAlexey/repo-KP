@@ -1,0 +1,6 @@
+C:\Users\Алексей\Desktop\3 курс\Курсовой проект (2 семестр)\CarShowLada\TextCorrectLib\bin\Debug\TextCorrectLib.dll
+C:\Users\Алексей\Desktop\3 курс\Курсовой проект (2 семестр)\CarShowLada\TextCorrectLib\bin\Debug\TextCorrectLib.pdb
+C:\Users\Алексей\Desktop\3 курс\Курсовой проект (2 семестр)\CarShowLada\TextCorrectLib\obj\Debug\TextCorrectLib.csproj.AssemblyReference.cache
+C:\Users\Алексей\Desktop\3 курс\Курсовой проект (2 семестр)\CarShowLada\TextCorrectLib\obj\Debug\TextCorrectLib.csproj.CoreCompileInputs.cache
+C:\Users\Алексей\Desktop\3 курс\Курсовой проект (2 семестр)\CarShowLada\TextCorrectLib\obj\Debug\TextCorrectLib.dll
+C:\Users\Алексей\Desktop\3 курс\Курсовой проект (2 семестр)\CarShowLada\TextCorrectLib\obj\Debug\TextCorrectLib.pdb

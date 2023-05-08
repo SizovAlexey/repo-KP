@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CarShowLadaModelContainer" CdmEntityContainer="CarShowLadaEntities">
+    <EntitySetMapping Name="Bodies">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Body">
+        <MappingFragment StoreEntitySet="Body">
+          <ScalarProperty Name="Name_body" ColumnName="Name_body" />
+          <ScalarProperty Name="id_Body" ColumnName="id_Body" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Branch">
+        <MappingFragment StoreEntitySet="Branch">
+          <ScalarProperty Name="Telephone_number_branch" ColumnName="Telephone_number_branch" />
+          <ScalarProperty Name="Address_branch" ColumnName="Address_branch" />
+          <ScalarProperty Name="Name_branch" ColumnName="Name_branch" />
+          <ScalarProperty Name="id_Branch" ColumnName="id_Branch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Car">
+        <MappingFragment StoreEntitySet="Car">
+          <ScalarProperty Name="CountCar" ColumnName="CountCar" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Engine_power" ColumnName="Engine_power" />
+          <ScalarProperty Name="id_Drive" ColumnName="id_Drive" />
+          <ScalarProperty Name="id_Body" ColumnName="id_Body" />
+          <ScalarProperty Name="id_Color" ColumnName="id_Color" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="id_Car" ColumnName="id_Car" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car_In_Supply">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Car_In_Supply">
+        <MappingFragment StoreEntitySet="Car_In_Supply">
+          <ScalarProperty Name="Count_in_supply" ColumnName="Count_in_supply" />
+          <ScalarProperty Name="id_Car" ColumnName="id_Car" />
+          <ScalarProperty Name="id_Supply" ColumnName="id_Supply" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Telephone_number_client" ColumnName="Telephone_number_client" />
+          <ScalarProperty Name="Birthdate_client" ColumnName="Birthdate_client" />
+          <ScalarProperty Name="Patronymic_client" ColumnName="Patronymic_client" />
+          <ScalarProperty Name="Name_client" ColumnName="Name_client" />
+          <ScalarProperty Name="Surname_client" ColumnName="Surname_client" />
+          <ScalarProperty Name="id_Client" ColumnName="id_Client" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="Name_color" ColumnName="Name_color" />
+          <ScalarProperty Name="id_Color" ColumnName="id_Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drives">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Drive">
+        <MappingFragment StoreEntitySet="Drive">
+          <ScalarProperty Name="Name_drive" ColumnName="Name_drive" />
+          <ScalarProperty Name="id_Drive" ColumnName="id_Drive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Name_post" ColumnName="Name_post" />
+          <ScalarProperty Name="id_Post" ColumnName="id_Post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Name_role" ColumnName="Name_role" />
+          <ScalarProperty Name="id_Role" ColumnName="id_Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Sale">
+        <MappingFragment StoreEntitySet="Sale">
+          <ScalarProperty Name="id_Client" ColumnName="id_Client" />
+          <ScalarProperty Name="Date_sale" ColumnName="Date_sale" />
+          <ScalarProperty Name="id_Car" ColumnName="id_Car" />
+          <ScalarProperty Name="id_Branch" ColumnName="id_Branch" />
+          <ScalarProperty Name="id_Worker" ColumnName="id_Worker" />
+          <ScalarProperty Name="id_Sale" ColumnName="id_Sale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Name_supplier" ColumnName="Name_supplier" />
+          <ScalarProperty Name="id_Supplier" ColumnName="id_Supplier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplies">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Supply">
+        <MappingFragment StoreEntitySet="Supply">
+          <ScalarProperty Name="Date_supply" ColumnName="Date_supply" />
+          <ScalarProperty Name="id_Supplier" ColumnName="id_Supplier" />
+          <ScalarProperty Name="id_Supply" ColumnName="id_Supply" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CarShowLadaModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CarShowLadaModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id_Role" ColumnName="id_Role" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workers">
+      <EntityTypeMapping TypeName="CarShowLadaModel.Worker">
+        <MappingFragment StoreEntitySet="Worker">
+          <ScalarProperty Name="Telephone_number_worker" ColumnName="Telephone_number_worker" />
+          <ScalarProperty Name="Image_worker" ColumnName="Image_worker" />
+          <ScalarProperty Name="id_Post" ColumnName="id_Post" />
+          <ScalarProperty Name="Birthdate_worker" ColumnName="Birthdate_worker" />
+          <ScalarProperty Name="Patronymic_worker" ColumnName="Patronymic_worker" />
+          <ScalarProperty Name="Name_worker" ColumnName="Name_worker" />
+          <ScalarProperty Name="Surname_worker" ColumnName="Surname_worker" />
+          <ScalarProperty Name="id_Worker" ColumnName="id_Worker" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
